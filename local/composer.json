@@ -1,0 +1,77 @@
+{
+  "name": "laravel/laravel",
+  "description": "The Laravel Framework.",
+  "keywords": ["framework", "laravel"],
+  "license": "MIT",
+  "require": {
+    "laravel/framework": "4.2.20",
+    "barryvdh/laravel-vendor-cleanup": "v1.2.4",
+    "fitztrev/laravel-html-minify": "1.0.*",
+    "anahkiasen/former": "3.5.*",
+    "zizaco/confide": "^4.2.0",
+    "zizaco/entrust": "^1.3.0",
+    "baum/baum": "1.0.*",
+    "yzalis/identicon": "1.1.*",
+    "codesleeve/laravel-stapler": "1.0.*",
+    "piwik/device-detector": "3.7.*",
+    "guzzlehttp/guzzle": "6.0.*",
+    "intervention/image": "2.1.*",
+    "barryvdh/laravel-elfinder": "0.2.*",
+    "true/punycode": "1.1.*",
+    "cocur/slugify": "1.1.*@dev",
+    "hashids/hashids": "1.0.*",
+    "watson/validating": "0.10.*",
+    "embed/embed": "2.6.*",
+    "gabordemooij/redbean": "4.3.*",
+    "gajus/dindent": "2.0.*",
+    "electrolinux/phpquery": "0.9.6",
+    "maatwebsite/excel": "1.3.*",
+    "robbrazier/piwik": "~2.0",
+    "aws/aws-sdk-php": "^2.8",
+    "graham-campbell/flysystem": "^1.0.0",
+    "barryvdh/elfinder-flysystem-driver": "^0.1.1",
+    "league/flysystem-aws-s3-v2": "^1.0",
+    "league/oauth1-client": "1.7.*",
+    "league/oauth2-client": "1.*",
+    "league/oauth2-facebook": "1.4.*",
+    "aweber/aweber": "^1.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "App": "app/src/",
+      "Campaign": "app/src/",
+      "Media": "app/src/",
+      "Analytics": "app/src/",
+      "Web": "app/src/",
+      "Lead": "app/src/"
+    },
+    "classmap": [
+      "app/commands",
+      "app/controllers",
+      "app/models",
+      "app/extensions",
+      "app/database/migrations",
+      "app/database/seeds",
+      "app/tests/TestCase.php"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan clear-compiled",
+      "php artisan vendor-cleanup",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "php artisan clear-compiled",
+         "php artisan vendor-cleanup",
+      "php artisan optimize"
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "stable"
+}

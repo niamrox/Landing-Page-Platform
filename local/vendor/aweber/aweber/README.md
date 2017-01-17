@@ -1,0 +1,153 @@
+AWeber API PHP Library [![Build Status](https://secure.travis-ci.org/aweber/AWeber-API-PHP-Library.png?branch=master)](http://travis-ci.org/aweber/AWeber-API-PHP-Library)
+======================
+
+PHP library for easily integrating with the AWeber API.
+
+
+Basic Usage:
+------------
+Refer to demo.php to see a working example of how to authenticate an app and query the API.
+
+For more complete documentation please refer to:
+https://labs.aweber.com/docs/php-library-walkthrough
+
+
+Handling Errors:
+----------------
+Sometimes errors happen and your application should handle them appropriately.
+Whenever an API error occurs an AWeberAPIException will be raised with a detailed
+error message and documentation link to explain what is wrong.
+
+You should wrap any calls to the API in a try/except block.
+
+Common Errors:
+ * Bad request (400 error)
+ * Your application is not authorized (401 error)
+ * Your application has been rate limited (403 error)
+ * Resource not found (404 error)
+ * API Temporarily unavailable (503 error)
+
+Refer to https://labs.aweber.com/docs/troubleshooting for the complete list
+
+Example Below:
+
+```php
+<?php
+
+$consumerKey = '***';
+$consumerSecret = '***';
+$accessKey = '***';
+$accessSecret = '***';
+
+$aweber = new AWeberAPI($consumerKey, $consumerSecret);
+$account = $aweber->getAccount($accessKey, $accessSecret);
+
+try {
+    $resource = $account->loadFromUrl('/accounts/idontexist');
+} catch (AWeberAPIException $exc) {
+    print "<li> $exc->type on $exc->url, refer to $exc->message for more info ...<br>";
+}
+?>
+```
+
+
+Accessing personally identifiable subscriber data
+-------------------------------------------------
+In order to view or update the email, name, misc_notes, and ip_address fields of a subscriber, your app must
+specifically request access to subscriber data.   Refer to our documentation at
+https://labs.aweber.com/docs/permissions for more information on how to be able to access personally identifiable
+subscriber information.
+
+
+Changelog:
+----------
+2016-11-09: v1.1.15
+  * Create AWeberEntry for Broadcast Entry endpoint
+
+2015-02-17: v1.1.13
+  * Remove double encoding in requests to support utf-8
+
+2014-02-05: v1.1.12
+  * Add composer file.
+
+2013-04-25: v1.1.11
+  * Fixed a bug in the Collection Find Subscriber method where fetching the next page in the collection had not
+    included the previous search parameters.
+
+  * We've changed how we store collection data internally in AWeberCollection objects to
+    reduce the amount of memory required for large collections.
+
+    To lower memory usage, the AWeberCollection only stores a single page of entries
+    as you iterate thru the collection.
+
+    - foreach and sequential array indexing operations now require less memory.
+
+    - Random access of array elements by indexes will fetch pages of the collection
+      from the API on demand if the collection data is not already in memory.
+
+2013-02-07: v1.1.10
+  * Updated APIUnreachableException to provide more diagnostic data.
+
+2013-01-03: v1.1.9
+  * Updated client library to support 1.0.17 of the API. (Broadcast Statistics)
+
+2012-12-13: v1.1.8
+  * Fixed a bug that resulted in Exceptions being raised when using collections when the collection size is zero.
+
+2012-12-10: v1.1.7
+  * Added a parameter to the Move Subscriber method for last followup message number sent.
+    * to support version 1.0.16 of the API.  See https://labs.aweber.com/docs/changelog
+
+2012-09-19: v1.1.6
+  * Fixed a bug that prevented resource attributes from being saved when the initial value of the resource attribute was null.
+    * used array_key_exists instead of isset for evaluation of associative arrays.  Requires PHP >= 4.0.7
+
+2012-07-05: v1.1.5
+  * Fixed a bug were a utf8_encode notice was raised when updating subscriber custom field values.
+
+2012-05-08: v1.1.4
+   Some API Developers have reported AWeberOAuthDataMissing exceptions when using the demo.php script.
+   This error message is not helpful as the typical cause for this exception is an invalid consumer key or secret.
+
+   The client library has been refactored to always raise an AWeberAPIException when a 40x/50x http status code
+   response is returned.  This exception will clearly indicate the cause of the error for easier troubleshooting.
+ * Refactored makeRequest to always raise an AWeberAPIException when a 40x or 50x status is returned.
+ * Refactored makeRequest to indicate transient networking or firewall connectivity issues.
+ * Refactored mock adaptor makeRequest for testing to behave the same way as the real makeRequest does.
+
+2012-04-18: v1.1.3
+
+ * Removed usage of deprecated split function.
+
+2011-12-23: v1.1.2
+
+ * Fixed a bug in the AWeberCollection class to properly set the URL of entries found in collections.
+
+2011-10-10: v1.1.1
+
+ * Raise an E_USER_WARNING instead of a fatal error if multiple instances of the client library are installed.
+
+2011-08-29: v1.1.0
+
+ * Modified client library to raise an AWeberAPIException on any API errors (HTTP status >= 400)
+ * Refactored tests for better code coverage
+ * Refactored move and create methods to return the resource or raise an AWeberAPIException on error.
+ * Added getActivity method to a subscriber entry.
+
+
+
+Running Tests:
+--------------
+Testing the PHP api library requires installation of a few utilities.
+
+### Requirements ###
+[Apache Ant](http://ant.apache.org/) is used to run the build targets in the build.xml file. Get the latest version.
+
+Setup `/etc/php.ini` configuration file. Make sure `include_path` contains the correct directories.(`/usr/lib/php` on MacOS) Set `date.timezone` to your local timezone.
+
+### Execute Tests ###
+Once the above requirements are installed, make sure to run `composer install`, this will ensure all the test dependencies are installed.
+
+Run the tests from the base directory using the command: `ant`.
+
+Individual test can be run by specifying ant targets: `ant phpunit`, `ant phpcs`.

@@ -1,0 +1,33 @@
+{
+  "name": "aweber/aweber",
+  "description": "The official AWeber API client library.",
+  "homepage": "https://www.aweber.com",
+  "license": "GPL-2.0",
+  "keywords": [
+    "email",
+    "api",
+    "client"
+  ],
+  "support": {
+    "email": "api@aweber.com",
+    "source": "https://github.com/aweber/AWeber-API-PHP-Library",
+    "issues": "https://github.com/aweber/AWeber-API-PHP-Library"
+  },
+  "autoload": {
+    "classmap": [
+      "aweber_api/"
+    ]
+  },
+  "require-dev": {
+    "phpdocumentor/phpdocumentor": "^2.9",
+    "pdepend/pdepend": "^2.2",
+    "phpmd/phpmd": "^2.4",
+    "bamboohr/phpcs": "^0.1.4",
+    "sebastian/phpcpd": "^2.0",
+    "phploc/phploc": "^3.0",
+    "squizlabs/php_codesniffer": "^2.7",
+    "php-di/phpdoc-reader": "^2.0",
+    "mayflower/php-codebrowser": "^1.1",
+    "phpunit/phpunit": "^5.6"
+  }
+}

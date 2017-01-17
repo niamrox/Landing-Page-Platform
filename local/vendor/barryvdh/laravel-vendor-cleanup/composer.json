@@ -1,0 +1,25 @@
+{
+    "name": "barryvdh/laravel-vendor-cleanup",
+    "description": "A vendor cleanup package, to remove tests and documentation to save space",
+    "keywords": ["laravel", "vendor", "cleanup"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Barry vd. Heuvel",
+            "email": "barryvdh@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.x",
+        "illuminate/console": "4.x",
+        "illuminate/filesystem": "4.x",
+        "symfony/finder": "~2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Barryvdh\\VendorCleanup": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

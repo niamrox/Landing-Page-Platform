@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /local/
+Disallow: /stock/
+Disallow: /templates/
+Disallow: /uploads/
+Disallow: /packages/

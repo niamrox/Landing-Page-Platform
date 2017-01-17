@@ -1,0 +1,40 @@
+﻿{
+    "Client": {
+        "TEXT": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"text\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"text\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<\/div>",
+        "NAME": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"name\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"text\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<\/div>",
+        "NUMBER": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"number\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"number\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" step=\"any\" data-parsley-pattern=\"^[\\d\\.,) ]*$\" {{mandatoryinput}}>\r\n<\/div>",
+        "EMAIL": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"email\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"email\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<\/div>",
+        "TEL": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"tel\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"tel\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" data-parsley-pattern=\"^[\\d\\-\\+\\(\\) ]*$\" {{mandatoryinput}}>\r\n<\/div>",
+        "URL": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"url\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"url\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" data-parsley-type=\"url\" {{mandatoryinput}}>\r\n<\/div>",
+        "DATE": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"date\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"date\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<\/div>",
+        "TIME": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"time\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"time\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<\/div>",
+        "DATETIME": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"dateTime\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<input type=\"datetime\" class=\"form-control mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<\/div>",
+        "TEXTAREA": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"textArea\">\r\n<label for=\"{{Id}}\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<textarea class=\"form-control mwp-fb-input-field\" rows=\"5\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}><\/textarea>\r\n<\/div>",
+        "CHECKBOX": "<div class=\"form-group checkbox form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"checkBox\">\r\n<label>\r\n<input type=\"checkbox\" class=\"mwp-fb-input-field\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>\r\n<span class=\"mwp-fb-input-label\">{{Label}}<\/span>\r\n<\/label>\r\n<\/div>",
+        "RADIOLIST": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"radioList\">\r\n<label class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n{{Value:<div class=\"radio\"><label><input type=\"radio\" name=\"{{Name}}\" value=\"[0]\" class=\"mwp-fb-input-field\" [1]>[0]<\/label><\/div>}}<\/div>",
+        "SELECT": "<div class=\"form-group form-group-lg mwp-fb-input input-row\" data-mwp-inputtype=\"select\">\r\n<label for=\"form-01-email\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n<select class=\"form-control\" id=\"{{Id}}\" name=\"{{Name}}\" {{mandatoryinput}}>{{Value:<option class=\"mwp-fb-input-field\" [1]>[0]<\/option>}}\r\n<\/select>\r\n<\/div>",
+        "MULTI": "<div class=\"form-group mwp-fb-input input-row\" data-mwp-inputtype=\"selectMulti\">\r\n<label for=\"form-01-email\" class=\"mwp-fb-input-label\">{{Label}}<\/label>\r\n{{Value:<div class=\"checkbox\"><label><input type=\"checkbox\" name=\"{{Name}}\" value=\"[0]\" class=\"mwp-fb-input-field\" [1]>[0]<\/label><\/div>}}\r\n<\/div>",
+        "SUBMIT":  "<div class=\"form-group form-group-lg mwp-fb-submit\"><button type=\"submit\" class=\"btn btn-primary btn-xs-block btn-lg btn-md-inline-block mwp-fb-sendbutton\">{{Button}}</button></div>"    },
+    "Editor": {
+        "Row": [
+            "<tr class=\"fb-field-row\"><td class=\"fb-field-move-v\"><i class=\"fa fa-arrows-v\"></i></td>",
+            "<td><input class=\"form-control fb-field-name\" value=\"{{Label}}\" required/></td>",
+            "<td>{{type}}</td>",
+            "<td class=\"text-center\"><button type=\"button\" class=\"btn btn-info fb-field-options-btn\" style=\"{{options}}\" data-mwp-list=\"{{Value:[0]&#xa;}}\" data-toggle=\"popover\"><i class=\"fa fa-pencil\"></i></button></td>",
+            "<td class=\"text-center\"><input type=\"checkbox\" class=\"fb-field-mandatory\" data-parsley-required=\"false\" {{mandatory}} {{mandatoryNoEdit}} /></td>",
+            "<td><button type=\"button\" class=\"btn btn-danger fb-delete-row\" {{delBtnDisplay}}><i class=\"fa fa-trash-o\"></i></button></td>",
+            "</tr>"
+        ],
+       "OptionPopover": [
+            "<div class=\"popover\" role=\"tooltip\"><div class=\"arrow\"></div><div class=\"popover-content\"></div></div>"
+        ],
+        "OptionPopoverContent": [
+            "<div class=\"app-ie fb-editor-popover\"><div class=\"alert alert-info\"><ul><li>{{info1}}</li><li>{{info2}}</li></ul></div>",
+            "<textarea class=\"fb-popover-options\" rows=\"6\"></textarea>",
+            "<div class=\"text-right\"><button type=\"button\" class=\"btn btn-primary fb-popover-options-btn btn-block\">{{savebutton}}</button></div></div>"
+        ],
+        "TypeList": "<select class=\"form-control fb-type-select\" {{disabled}}>{{options}}</select>"
+    }
+}
+
+

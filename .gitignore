@@ -1,0 +1,16 @@
+/build
+/local/composer.phar
+/local/composer.lock
+/local/.env.*.php
+/local/.env.php
+/local/Gruntfile.js
+/local/bower.json
+/local/package.json
+.DS_Store
+Thumbs.db
+/local/node_modules
+_notes
+npm-debug.log
+.idea
+/demo
+/deploy
