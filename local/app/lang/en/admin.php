@@ -103,6 +103,7 @@ return array(
 	"bank" => "Bank Transfer",
 	"bank_title" => "Pay by Bank Transfer",
 	"bank_info" => "Pay the invoice by bank within 7 days",
+	"bank_account_info" => "Transfer the invoice amount to:<br><strong>:bank_account</strong>",
 	"bank_image" => "bank-transfer.png",
 
 	/*

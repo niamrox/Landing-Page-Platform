@@ -1,5 +1,5 @@
 <h3>{{ trans('admin.purchase') }}</h3>
-
+<p>{{ trans('admin.bank_account_info', ['bank_account' => \Config::get('payment-gateways.gateways.bank.account')]) }}</p>
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
 	<tbody>
 		<tr>

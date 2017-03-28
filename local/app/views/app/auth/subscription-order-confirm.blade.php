@@ -26,6 +26,11 @@
 				</h3>
 				<address>
 					{{ trans('admin.' . $payment_method) }}
+<?php
+if ($payment_method == 'bank') {
+  echo '<br><br>' . trans('admin.bank_account_info', ['bank_account' => \Config::get('payment-gateways.gateways.bank.account')]);
+}
+?>
 				</address>
 
 

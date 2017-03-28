@@ -47,7 +47,8 @@ return array(
 		*/
 
 		'bank' => array(
-			'active' => true
+			'active' => true,
+			'account' => 'XXXX.XXXX.XXXX Attn BUSINESS NAME' /* Enter your bank account number and name here */
 		),
 
 		/*
