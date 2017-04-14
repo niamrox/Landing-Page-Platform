@@ -362,6 +362,31 @@ class Filesystem
         $startPathArr = explode('/', trim($startPath, '/'));
         $endPathArr = explode('/', trim($endPath, '/'));
 
+        if ('/' !== $startPath[0]) {
+            array_shift($startPathArr);
+        }
+
+        if ('/' !== $endPath[0]) {
+            array_shift($endPathArr);
+        }
+
+        $normalizePathArray = function ($pathSegments) {
+            $result = array();
+
+            foreach ($pathSegments as $segment) {
+                if ('..' === $segment) {
+                    array_pop($result);
+                } else {
+                    $result[] = $segment;
+                }
+            }
+
+            return $result;
+        };
+
+        $startPathArr = $normalizePathArray($startPathArr);
+        $endPathArr = $normalizePathArray($endPathArr);
+
         // Find for which directory the common path stops
         $index = 0;
         while (isset($startPathArr[$index]) && isset($endPathArr[$index]) && $startPathArr[$index] === $endPathArr[$index]) {
@@ -568,7 +593,10 @@ class Filesystem
             }
 
             $this->chmod($tmpFile, $mode);
+        } elseif (file_exists($filename)) {
+            @chmod($tmpFile, fileperms($filename));
         }
+
         $this->rename($tmpFile, $filename, true);
     }
 
