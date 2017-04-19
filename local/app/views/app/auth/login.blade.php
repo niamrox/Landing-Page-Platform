@@ -90,8 +90,8 @@ $languages = \App\Controller\AccountController::getLanguages();
 if(count($languages) > 1)
 {
 ?>
-				<div class="form-group w-icon">
-					<select class="form-control input-lg" name="lang" id="lang" style="line-height: 34px;padding-left: 54px;font-size:15px">
+				<div class="form-group">
+					<select class="form-control input-lg" name="lang" id="lang" style="line-height: 34px;font-size:15px">
 <?php
 foreach($languages as $language)
 {
@@ -100,7 +100,6 @@ foreach($languages as $language)
 }
 ?>
 					</select>
-					<span class="fa fa-flag signin-form-icon"></span>
 				</div>
 <?php } ?>
 				<div class="form-group w-icon">
